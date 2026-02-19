@@ -3,20 +3,26 @@
 Simple hello world program
 """
 
-def add_three_integers(a, b, c):
+def add_numbers(numbers):
     """
-    Function to add three integers
+    Generic function to add any number of integers from a list
     
     Args:
-        a: First integer
-        b: Second integer
-        c: Third integer
+        numbers: List of integers to sum
     
     Returns:
-        Sum of the three integers
+        Sum of all the integers in the list
     """
-    return a + b + c
+    if not isinstance(numbers, list):
+        raise TypeError("Input must be a list of numbers")
+    if not numbers:
+        return 0
+    return sum(numbers)
 
 print("Hello")
-result = add_three_integers(5, 10, 15)
-print(f"Sum of 5, 10, and 15 is: {result}")
+result = add_numbers([5, 10, 15])
+print(f"Sum of [5, 10, 15] is: {result}")
+
+# Additional examples
+result2 = add_numbers([1, 2, 3, 4, 5])
+print(f"Sum of [1, 2, 3, 4, 5] is: {result2}")
